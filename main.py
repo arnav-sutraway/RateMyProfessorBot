@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from RmpBot import *
+import bot
 
 def test_submit_rating():
     with sync_playwright() as p:
@@ -17,10 +18,6 @@ def test_submit_rating():
 
         bot = RmpBot()
 
-        # --------------------
-        # AMOUNT OF TIMES TO RUN BOT
-        # --------------------
-        count = bot.get_count_amount()
 
         # --------------------
         # SELECT COURSE CODE
@@ -87,8 +84,13 @@ def test_submit_rating():
         # --------------------
         bot.exit_review(page, browser)
 
+
 if __name__ == '__main__':
+
+    count = RmpBot.get_count_amount(self=None)
+    countt = 1
     while count > 0:
         test_submit_rating()
-        print(f"Completed submission #{4 - count}")
+        print(f"Completed submission #{countt}")
         count -= 1
+        countt += 1

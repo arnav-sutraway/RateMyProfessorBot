@@ -2,6 +2,15 @@ class RmpBot:
     def __init__(self):
         pass
 
+    def get_count_amount(self):
+        count = input("Enter the number of submissions to make: ")
+        try:
+            count = int(count)
+        except ValueError:
+            print("Invalid input. Defaulting to 1 submission.")
+            count = 1
+        return count
+
     def select_course_code(self, page):
         # --------------------
         # SELECT COURSE CODE

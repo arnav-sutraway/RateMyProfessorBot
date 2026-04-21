@@ -18,6 +18,11 @@ def test_submit_rating():
         bot = RmpBot()
 
         # --------------------
+        # AMOUNT OF TIMES TO RUN BOT
+        # --------------------
+        count = bot.get_count_amount()
+
+        # --------------------
         # SELECT COURSE CODE
         # --------------------
         bot.select_course_code(page)
@@ -83,4 +88,7 @@ def test_submit_rating():
         bot.exit_review(page, browser)
 
 if __name__ == '__main__':
-    test_submit_rating()
+    while count > 0:
+        test_submit_rating()
+        print(f"Completed submission #{4 - count}")
+        count -= 1

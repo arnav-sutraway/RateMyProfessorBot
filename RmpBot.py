@@ -29,7 +29,7 @@ class RmpBot:
         page.wait_for_timeout(200)
 
         box = slider.bounding_box()
-        print("QUALITY slider box:", box)
+        #print("QUALITY slider box:", box)
 
         page.mouse.click(
             box["x"] + box["width"] * 0.9,

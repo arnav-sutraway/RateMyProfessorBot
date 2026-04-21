@@ -11,8 +11,9 @@ def test_submit_rating():
 
         context = browser.new_context(no_viewport=True)
         page = context.new_page()
+        link = "https://www.ratemyprofessors.com/add/professor-rating/3088979"
 
-        page.goto("https://www.ratemyprofessors.com/add/professor-rating/3088979")
+        page.goto(link)
 
         bot = RmpBot()
 
@@ -26,6 +27,11 @@ def test_submit_rating():
         # QUALITY (5 stars)
         # --------------------
         bot.select_quality(page)
+
+        # --------------------
+        # DIFFICULTY (1 star)
+        # --------------------
+        bot.select_difficulty(page)
 
         # --------------------
         # WOULD YOU TAKE AGAIN? (YES)

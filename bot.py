@@ -162,7 +162,7 @@ def test_submit_rating():
         # --------------------
         # EXIT REVIEW
         # --------------------
-        page.wait_for_timeout(3000)
+        page.wait_for_timeout(2000)
         browser.close()
 
 if __name__ == '__main__':

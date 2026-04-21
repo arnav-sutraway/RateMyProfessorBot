@@ -26,7 +26,7 @@ class RmpBot:
 
         slider = page.locator("div[data-testid='SliderBox']").nth(4)
         page.wait_for_selector("div[data-testid='SliderBox']")
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(200)
 
         box = slider.bounding_box()
         print("QUALITY slider box:", box)
@@ -47,7 +47,7 @@ class RmpBot:
 
         difficulty = page.locator("div[data-testid='SliderBox']").nth(5)
         difficulty.scroll_into_view_if_needed()
-        #page.wait_for_timeout(500)
+        page.wait_for_timeout(300)
 
         dbox = difficulty.bounding_box()
         # DEBUGGING print("DIFFICULTY slider box:", dbox)
@@ -59,7 +59,7 @@ class RmpBot:
         )
 
         # DEBUGGING print("DIFFICULTY aria-selected:", difficulty.get_attribute("aria-selected"))
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_would_take_again(self, page):

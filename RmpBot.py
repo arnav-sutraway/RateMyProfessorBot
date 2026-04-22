@@ -49,6 +49,27 @@ class RmpBot:
         page.wait_for_timeout(100)
 
 
+    def select_quality_negative(self, page):
+        # --------------------
+        # QUALITY (1 star) .nth(0) for 1 star, .nth(1) for 2 stars, etc.
+        # --------------------
+
+        slider = page.locator("div[data-testid='SliderBox']").nth(0)
+        page.wait_for_selector("div[data-testid='SliderBox']")
+        page.wait_for_timeout(100)
+
+        box = slider.bounding_box()
+        #print("QUALITY slider box:", box)
+
+        page.mouse.click(
+            box["x"] + box["width"] * 0.9,
+            box["y"] + box["height"] / 2
+        )
+
+        # DEBUGGING print(slider.get_attribute("aria-selected"))
+        page.wait_for_timeout(100)
+
+
     def select_difficulty(self, page):
         # --------------------
         # DIFFICULTY (1 star)

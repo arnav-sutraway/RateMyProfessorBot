@@ -28,7 +28,8 @@ def test_submit_rating():
         # --------------------
         # QUALITY (5 stars)
         # --------------------
-        bot.select_quality(page)
+        #bot.select_quality(page)
+        bot.select_quality_negative(page)
 
         # --------------------
         # DIFFICULTY (1 star)
@@ -77,7 +78,7 @@ def test_submit_rating():
         # --------------------
         # CLICK SUBMIT
         # --------------------
-        bot.click_submit(page)
+        #bot.click_submit(page)
 
         # --------------------
         # EXIT REVIEW

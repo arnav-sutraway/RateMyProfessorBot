@@ -18,11 +18,11 @@ class RmpBot:
 
         dropdown = page.locator(".css-1nfef2z-control").first
         dropdown.scroll_into_view_if_needed()
-        page.wait_for_timeout(200)
+        page.wait_for_timeout(100)
         dropdown.click()
 
         # Wait for menu to appear
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
         # Click the option
         page.get_by_text("2211K", exact=True).click()
@@ -30,12 +30,12 @@ class RmpBot:
         
     def select_quality(self, page):
         # --------------------
-        # QUALITY (5 stars)
+        # QUALITY (5 stars) .nth(4) for 5 stars, .nth(3) for 4 stars, etc.
         # --------------------
 
         slider = page.locator("div[data-testid='SliderBox']").nth(4)
         page.wait_for_selector("div[data-testid='SliderBox']")
-        page.wait_for_timeout(200)
+        page.wait_for_timeout(100)
 
         box = slider.bounding_box()
         #print("QUALITY slider box:", box)
@@ -46,7 +46,7 @@ class RmpBot:
         )
 
         # DEBUGGING print(slider.get_attribute("aria-selected"))
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_difficulty(self, page):
@@ -56,7 +56,7 @@ class RmpBot:
 
         difficulty = page.locator("div[data-testid='SliderBox']").nth(5)
         difficulty.scroll_into_view_if_needed()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
         dbox = difficulty.bounding_box()
         # DEBUGGING print("DIFFICULTY slider box:", dbox)
@@ -68,7 +68,7 @@ class RmpBot:
         )
 
         # DEBUGGING print("DIFFICULTY aria-selected:", difficulty.get_attribute("aria-selected"))
-        page.wait_for_timeout(100)
+        page.wait_for_timeout(50)
 
 
     def select_would_take_again(self, page):
@@ -79,7 +79,7 @@ class RmpBot:
         take_again = page.locator("input#wouldTakeAgain-Yes")
         take_again.scroll_into_view_if_needed()
         take_again.click()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_taken_for_credit(self, page):
@@ -89,7 +89,7 @@ class RmpBot:
         taken_for_credit = page.locator("input#forCredit-Yes")
         taken_for_credit.scroll_into_view_if_needed()
         taken_for_credit.click()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_uses_textbooks(self, page): 
@@ -99,7 +99,7 @@ class RmpBot:
         uses_textbooks = page.locator("input#usesTextbooks-No")
         uses_textbooks.scroll_into_view_if_needed()
         uses_textbooks.click()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_attendance_mandatory(self, page):
@@ -109,7 +109,7 @@ class RmpBot:
         attendance_mandatory = page.locator("input#attendanceMandatory-No")
         attendance_mandatory.scroll_into_view_if_needed()
         attendance_mandatory.click()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def select_grade_received(self, page):
@@ -119,11 +119,11 @@ class RmpBot:
         
         dropdown = page.locator(".css-1j0hwvb-control").first
         dropdown.scroll_into_view_if_needed()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
         dropdown.click()
 
         # Wait for menu to appear
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
         # Click the option
         page.get_by_text("A", exact=True).click()
@@ -146,7 +146,7 @@ class RmpBot:
             tag = tags.nth(i)
             tag.scroll_into_view_if_needed()
             tag.click()
-            page.wait_for_timeout(300)
+            page.wait_for_timeout(100)
         
 
     def select_write_review(self, page): 
@@ -162,7 +162,7 @@ class RmpBot:
         review_text = random.choice(data["reviews"])
 
         page.fill("textarea[name='comment']", review_text)
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(100)
 
 
     def click_submit(self, page):
@@ -174,7 +174,7 @@ class RmpBot:
         submit_btn.wait_for(state="visible")
 
         submit_btn.scroll_into_view_if_needed()
-        page.wait_for_timeout(300)
+        page.wait_for_timeout(200)
 
         submit_btn.click()
 
